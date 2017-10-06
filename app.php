@@ -43,9 +43,9 @@
       ?>
           <table class="table table-striped">
             <thead>
+                <tr>
                 <th>Build
                 </th>
-                <tr>
                 <th>App
                 </th>
                 <th>Branch
