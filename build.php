@@ -53,6 +53,15 @@
           View on <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" height=13 />
         </a>
 
+        <?php if ($row['runner_ip'] != null) { ?>
+        <hr />
+
+        <h4>Run this to connect to the machine that ran this build</h4>
+        <pre class='terminal'><?php echo(remotecmd($row)) ?></pre>
+
+        <?php } ?>
+        <hr />
+
         <h4>Specs</h4>
         <dl>
           <dt>Started</dt>
