@@ -56,8 +56,9 @@
         <?php if ($row['runner_ip'] != null) { ?>
         <hr />
 
-        <h4>Run this to connect to the machine that ran this build</h4>
+        <h4>Run this to connect to the machine in charge of this build</h4>
         <pre class='terminal'><?php echo(remotecmd($row)) ?></pre>
+        <p>(Press Ctrl+A and then D to exit)</p>
 
         <?php } ?>
         <hr />
