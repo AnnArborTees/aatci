@@ -47,6 +47,8 @@
                 </th>
                 <th>Status
                 </th>
+                <th>Author
+                </th>
                 <th>Spec Start Time
                 </th>
                 <th>Spec Finish Time
@@ -70,6 +72,8 @@
                     <div class="label label-<?php echo(status_class($row["status"])); ?>">
                         <?php echo($row["status"]); ?>
                     </div>
+                </td>
+                <td><?php echo($row["author"]) ?>
                 </td>
                 <td><?php echo(displaytime($row["specs_started_at"])); ?>
                 </td>
