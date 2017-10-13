@@ -42,9 +42,11 @@
       ?>
         <div class="alert alert-<?php echo(status_class($row["status"])); ?>">
           <h3><?php echo($row["status"]); ?></h3>
+
+          <?php echo(nl2br(htmlentities($row['message']))); ?>
         </div>
 
-        <h3><?php echo($row["author"]) ?></h3>
+        <h3><?php echo($row["author"]); ?></h3>
 
         <a href="https://github.com/AnnArborTees/<?php echo($row["app"]) ?>/commit/<?php echo($row["commit"]) ?>" target='_blank' class='btn btn-default'>
           View on <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" height=13 />
