@@ -28,7 +28,7 @@
     <?php include "layout/header.php"; ?>
 
       <div class="starter-template">
-        <h1><?php echo($app_name); ?> - Build #<?php echo($build_id); ?></h1>
+        <h1><a href="app.php?app_name=<?php echo($app_name); ?>"><?php echo($app_name); ?></a> - Build #<?php echo($build_id); ?></h1>
         <div class="text-right">
           <a href="app.php?app_name=<?php echo($app_name); ?>" class="btn btn-primary">Return to App</a>
           <a href="index.php" class="btn btn-primary">Return to Dashboard</a>
