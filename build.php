@@ -65,9 +65,9 @@
         <h4>Specs</h4>
         <dl>
           <dt>Started</dt>
-          <dd><?php echo($row["specs_started_at"]); ?></dd>
+          <dd><?php echo(displaytime($row["specs_started_at"])); ?></dd>
           <dt>Ended</dt>
-          <dd><?php echo($row["specs_ended_at"]); ?></dd>
+          <dd><?php echo(displaytime($row["specs_ended_at"])); ?></dd>
         </dl>
         <div class="alert terminal">
           <?php echo(str_replace("  ", "&nbsp;&nbsp",nl2br($row["spec_output"]))); ?>
@@ -76,9 +76,9 @@
         <h4>Deploy</h4>
         <dl>
           <dt>Started</dt>
-          <dd><?php echo($row["deploy_started_at"]); ?></dd>
+          <dd><?php echo(displaytime($row["deploy_started_at"])); ?></dd>
           <dt>Ended</dt>
-          <dd><?php echo($row["deploy_ended_at"]); ?></dd>
+          <dd><?php echo(displaytime($row["deploy_ended_at"])); ?></dd>
         </dl>
         <div class="alert terminal">
           <?php echo(str_replace("  ", "&nbsp;&nbsp",nl2br($row["deploy_output"]))); ?>
