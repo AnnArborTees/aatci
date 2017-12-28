@@ -7,7 +7,7 @@
 .green { color: #00ff00; }
 .yellow { color: yellow; }
 .cyan { color: cyan; }
-.blue { color: blue; }
+.blue { color: #00a8ff; }
 .magenta { color: magenta; }
 .white { color: white; }
 
@@ -23,4 +23,5 @@
 .terminal {
   background-color: #000000;
   color: #FFF;
+  font-family: 'Roboto Mono', monospace;
 }
