@@ -62,7 +62,12 @@
             <tbody>
             <?php while($row = $result->fetch_assoc()) { ?>
                 <tr>
-                <td><a href="/build.php?build_id=<?php echo($row["id"]) ?>&app_name=<?php echo($row["app"]) ?>"><?php echo($row["commit"] ? $row["commit"] : $row["id"]); ?></a>
+                <td>
+                  <a href="/build.php?build_id=<?php echo($row["id"]) ?>&app_name=<?php echo($row["app"]) ?>">
+                    <?php echo($row["commit"] ? $row["commit"] : $row["id"]); ?>
+                  </a>
+                  <br />
+                  <?php echo(nl2br($row['message'])); ?>
                 </td>
                 <td><a href="/app.php?app_name=<?php echo($row["app"]) ?>"><?php echo($row["app"]); ?></a>
                 </td>

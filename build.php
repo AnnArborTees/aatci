@@ -43,7 +43,7 @@
         <div class="alert alert-<?php echo(status_class($row["status"])); ?>">
           <h3><?php echo($row["status"]); ?></h3>
 
-          <?php echo(nl2br(htmlentities($row['message']))); ?>
+          <?php echo(nl2br($row['message'])); ?>
         </div>
 
         <h3><?php echo($row["author"]); ?></h3>

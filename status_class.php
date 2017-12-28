@@ -1,10 +1,15 @@
 <?php
   function status_class($status){
     switch($status){
+      case "initialized":
+        return "primary";
+        break;
+      case "deploy_started":
+        return "info";
+        break;
       case "specs_started":
       case "specs_ended":
       case "specs_passed":
-      case "deploy_started":
       case "deploy_ended":
         return 'warning';
         break;
