@@ -2,6 +2,8 @@
 .underline { text-decoration: underline; }
 .underline { text-decoration: underline; }
 
+.stderr-output { background-color: #420000; }
+
 .black { color: black; }
 .red { color: #FF0000; }
 .green { color: #00ff00; }
