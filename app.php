@@ -35,6 +35,7 @@
         try {
             $sql = "select * from runs where app='{$app_name}' order by created_at DESC";
             $result = $conn->query($sql);
+            $failure_count = $conn->query("select count(*) c from failures where run_id='{$build_id}'")->fetch_assoc();
       ?>
           <table class="table table-striped">
             <thead>
@@ -77,6 +78,12 @@
                     <div class="label label-<?php echo(status_class($row["status"])); ?>">
                         <?php echo($row["status"]); ?>
                     </div>
+                    <?php
+                      $failure_count = $conn->query("select count(*) c from failures where run_id='{$row['id']}'")->fetch_assoc();
+                      if ($failure_count['c'] > 0) {
+                    ?>
+                      <div>failures: <span class='failure-count'><?php echo($failure_count['c']) ?></div>
+                    <?php } ?>
                 </td>
                 <td><?php echo($row["author"]) ?>
                 </td>

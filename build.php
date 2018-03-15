@@ -39,6 +39,7 @@
             $sql = "select * from runs where id='{$build_id}';";
             $result = $conn->query($sql);
             $row = $result->fetch_assoc();
+            $failure_count = $conn->query("select count(*) c from failures where run_id='{$build_id}'")->fetch_assoc();
       ?>
         <div class="alert alert-<?php echo(status_class($row["status"])); ?>">
           <h3><?php echo($row["status"]); ?></h3>
@@ -62,12 +63,29 @@
         <?php } ?>
         <hr />
 
+        <?php if ($failure_count['c'] > 0) {
+          $failures = $conn->query("select * from failures where run_id='{$build_id}'");
+        ?>
+          <div class='alert alert-danger'>
+            <h3><?php echo($failure_count['c']) ?> Failures</h3>
+
+          <?php while ($failure = $failures->fetch_assoc()) { ?>
+            <div class="alert terminal">
+              <?php echo(str_replace("  ", "&nbsp;&nbsp",nl2br($failure["output"]))); ?>
+            </div>
+          <?php } ?>
+            
+          </div>
+          <hr />
+        <?php } ?>
+
         <h4>Specs</h4>
         <dl>
           <dt>Started</dt>
           <dd><?php echo(displaytime($row["specs_started_at"])); ?></dd>
           <dt>Ended</dt>
           <dd><?php echo(displaytime($row["specs_ended_at"])); ?></dd>
+
         </dl>
         <div class="alert terminal">
           <?php echo(str_replace("  ", "&nbsp;&nbsp",nl2br($row["spec_output"]))); ?>
