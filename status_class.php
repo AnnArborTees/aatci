@@ -9,7 +9,6 @@
         break;
       case "specs_started":
       case "specs_ended":
-      case "specs_passed":
       case "deploy_ended":
         return 'warning';
         break;
@@ -19,6 +18,7 @@
         return 'danger';
         break;
       case "deployed":
+      case "specs_passed":
         return 'success';
         break;
       default:
