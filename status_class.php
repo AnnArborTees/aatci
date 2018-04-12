@@ -21,6 +21,9 @@
       case "specs_passed":
         return 'success';
         break;
+      case "retrying_specs":
+        return 'default';
+        break;
       default:
         return "danger";
     }

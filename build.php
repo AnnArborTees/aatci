@@ -70,7 +70,7 @@
             <h3><?php echo($failure_count['c']) ?> Failures</h3>
 
           <?php while ($failure = $failures->fetch_assoc()) { ?>
-            <div class="alert terminal">
+            <div class="alert terminal" id="failure-<?php echo($failure['id']); ?>">
               <?php echo(str_replace("  ", "&nbsp;&nbsp",nl2br($failure["output"]))); ?>
             </div>
           <?php } ?>
