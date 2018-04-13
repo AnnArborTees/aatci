@@ -30,6 +30,12 @@
       <div class="starter-template">
         <h1><a href="app.php?app_name=<?php echo($app_name); ?>"><?php echo($app_name); ?></a> - Build #<?php echo($build_id); ?></h1>
         <div class="text-right">
+          <form style='display: inline;' action="/make_request.php" method="POST">
+            <input type='hidden' name='app' value="<?php echo($_REQUEST['app_name']); ?>" />
+            <input type='hidden' name='target' value="Run#<?php echo($_REQUEST['build_id']); ?>" />
+            <input type='hidden' name='action' value="retry" />
+            <button class='btn btn-default'>Rerun</button>
+          </form>
           <a href="app.php?app_name=<?php echo($app_name); ?>" class="btn btn-primary">Return to App</a>
           <a href="index.php" class="btn btn-primary">Return to Dashboard</a>
         </div>
@@ -70,9 +76,17 @@
             <h3><?php echo($failure_count['c']) ?> Failures</h3>
 
           <?php while ($failure = $failures->fetch_assoc()) { ?>
+            <form action="/make_request.php" method="POST">
+              <input type='hidden' name='app' value="<?php echo($_REQUEST['app_name']); ?>" />
+              <input type='hidden' name='target' value="Failure#<?php echo($failure['id']); ?>" />
+              <input type='hidden' name='action' value="retry" />
+              <button class='btn btn-default'>Retry</button>
+            </form>
+
             <div class="alert terminal" id="failure-<?php echo($failure['id']); ?>">
               <?php echo(str_replace("  ", "&nbsp;&nbsp",nl2br($failure["output"]))); ?>
             </div>
+<hr />
           <?php } ?>
             
           </div>

@@ -4,6 +4,7 @@
       case "initialized":
         return "primary";
         break;
+      case "in_progress":
       case "deploy_started":
         return "info";
         break;
@@ -17,10 +18,12 @@
       case "error":
         return 'danger';
         break;
+      case "fulfilled":
       case "deployed":
       case "specs_passed":
         return 'success';
         break;
+      case "pending":
       case "retrying_specs":
         return 'default';
         break;
