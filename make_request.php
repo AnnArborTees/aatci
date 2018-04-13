@@ -9,7 +9,7 @@ $stmt->bind_param('sss', $_POST['app'], $_POST['action'], $_POST['target']);
 if ($stmt->execute()) {
 ?>
 <script type='text/javascript'>
-  setTimeout(function() { history.go(-1); }, 2000)
+  setTimeout(function() { location.href = document.referrer; }, 1500)
 </script>
 <div class='alert alert-success'>
 Request queued! Redirecting...
