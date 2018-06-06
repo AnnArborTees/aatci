@@ -1,6 +1,9 @@
 <?php
   include("config/config.php");
 
+  // Some useful constants
+  $RUN_FIELDS = "id,message,app,commit,branch,status,author,specs_started_at,specs_ended_at,deploy_started_at,deploy_ended_at";
+
   // Create connection
   $conn = new mysqli($servername, $username, $password, $db);
 

@@ -27,7 +27,7 @@
       </div>
       <?php
         try {
-            $sql = "select * from( select * from runs order by created_at DESC) x group by app";
+            $sql = "select $RUN_FIELDS from (select $RUN_FIELDS from runs order by created_at DESC) x group by app";
             $result = $conn->query($sql);
       ?>
           <table class="table table-striped">
