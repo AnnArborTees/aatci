@@ -35,7 +35,6 @@
         try {
             $sql = "select $RUN_FIELDS from runs where app='{$app_name}' order by created_at DESC limit 20";
             $result = $conn->query($sql);
-            $failure_count = $conn->query("select count(*) c from failures where run_id='{$build_id}'")->fetch_assoc();
       ?>
           <table class="table table-striped">
             <thead>

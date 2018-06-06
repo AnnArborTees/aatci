@@ -68,6 +68,12 @@
                 <td>
                     <div class="label label-<?php echo(status_class($row["status"])); ?>">
                         <?php echo($row["status"]); ?>
+                        <?php
+                          $failure_count = $conn->query("select count(*) c from failures where run_id='{$row['id']}'")->fetch_assoc();
+                          if ($failure_count['c'] > 0) {
+                        ?>
+                          (<span class='failure-count'><?php echo($failure_count['c']) ?>)
+                        <?php } ?>
                     </div>
                 </td>
                 <td><?php echo($row["author"]) ?>
