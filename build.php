@@ -59,6 +59,15 @@
           View on <img src="https://assets-cdn.github.com/images/modules/logos_page/GitHub-Logo.png" height=13 />
         </a>
 
+        <hr />
+
+        <dl>
+        <dt>Branch</dt>
+        <dd><?php echo($row['branch']) ?></dd>
+        <dt>Commit</dt>
+        <dd><?php echo($row['commit']) ?></dd>
+        </dl>
+
         <?php if ($row['runner_ip'] != null) { ?>
         <hr />
 
@@ -67,6 +76,7 @@
         <p>(Press Ctrl+A and then D to exit)</p>
 
         <?php } ?>
+
         <hr />
 
         <?php if ($failure_count['c'] > 0) {
@@ -74,6 +84,7 @@
         ?>
           <div class='alert alert-danger'>
             <h3><?php echo($failure_count['c']) ?> Failures</h3>
+            <hr />
 
           <?php while ($failure = $failures->fetch_assoc()) { ?>
             <form action="/make_request.php" method="POST">
@@ -86,7 +97,7 @@
             <div class="alert terminal" id="failure-<?php echo($failure['id']); ?>">
               <?php echo(str_replace("  ", "&nbsp;&nbsp",nl2br($failure["output"]))); ?>
             </div>
-<hr />
+            <hr />
           <?php } ?>
             
           </div>
