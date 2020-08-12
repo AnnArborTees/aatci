@@ -25,6 +25,40 @@
       <div class="starter-template">
         <h1>Ann Arbor Tees CI Dashboard</h1>
       </div>
+     <?php
+        try {
+            $sql = "select * from servers where info='ip_table';";
+            $result = $conn->query($sql);
+      ?>
+      <table class="table table-striped">
+        <thead>
+            <th>Server</th>
+            <th>IP Table</th>
+            <th>Last Updated</th>
+        </thead>
+        <tbody>
+        <?php while($row = $result->fetch_assoc()) { ?>
+            <tr>
+                <td><?php echo($row["server"]) ?>
+                </td>
+                <td><?php echo($row["data"]) ?>
+                </td>
+                <td><?php echo($row["updated_at"]) ?>
+                </td>
+            </tr>
+        <?php } ?>
+        </tbody>
+       <?php
+        } catch (Exception $e) {
+    ?>
+        <div class="alert alert-danger">
+            <h3>There was an error</h3>
+            <p><?php echo $e ?></p>
+        </div>
+    <?php
+        }
+      ?>
+
       <?php
         try {
             $sql = "select $RUN_FIELDS from (select $RUN_FIELDS from runs order by created_at DESC) x group by app";
